@@ -55,7 +55,6 @@ class LibnameConan(ConanFile):
         "ebml/1.4.0@camposs/stable",
     )
 
-    # temporary until release fixes interconnect issues on windows/release builds
     scm = {
         "type": "git",
         "subfolder": _source_subfolder,
@@ -68,9 +67,9 @@ class LibnameConan(ConanFile):
         if self.settings.os == 'Windows':
             del self.options.fPIC
 
-    # def configure(self):
-    #     if self.settings.compiler == 'Visual Studio' and int(self.settings.compiler.version.value) < 14:
-    #         raise ConanException("{} requires Visual Studio version 14 or greater".format(self.name))
+    def configure(self):
+        if self.options.shared:
+            self.options["ebml"].shared=True
 
     def _configure_cmake(self):
 
