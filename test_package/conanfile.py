@@ -15,7 +15,7 @@ class TestPackageConan(ConanFile):
 
     def requirements(self):
         self.requires(self.tested_reference_str)
-        self.requires("ebml/1.4.4@camposs/stable")
+        self.requires("ebml/1.4.5@camposs/stable")
 
     def layout(self):
         cmake_layout(self)
