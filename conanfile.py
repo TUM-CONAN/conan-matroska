@@ -34,7 +34,7 @@ class LibnameConan(ConanFile):
     }
 
     def requirements(self):
-        self.requires("ebml/1.4.4@camposs/stable")
+        self.requires("ebml/1.4.5@camposs/stable")
 
     def export(self):
         update_conandata(self, {"sources": {
